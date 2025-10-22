@@ -1,4 +1,4 @@
-name: CI Workflow
+name: Application CI
 
 on:
   push:
@@ -10,8 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run say-hello
-        run: make say-hello
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: make setup
+
+      - name: Run tests
+        run: make test
+
+      - name: Run linter
+        run: make lint
+
+      - name: Run hello action
+        uses: hexlet-components/hello-from-hexlet-action@release
