@@ -4,8 +4,6 @@
 say-hello:
 	@echo "Hello, World!"
 
-.PHONY: setup test lint
-
 setup:
   npm install
 
