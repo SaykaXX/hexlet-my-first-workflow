@@ -1,5 +1,5 @@
 # Makefile
-HELLO?=World # знак вопроса указывает, что переменная опциональна. Значение после присвоения можно не указывать.
+.PHONY: say-hello
 
 say-hello:
- echo "Hello, $(HELLO)!"
+	@echo "Hello, World!"
